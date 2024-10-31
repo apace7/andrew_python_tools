@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "andrew_python_tools"
+authors = [{name = "Andrew Pace", email = "pvpace1@gmail.com"}]
+readme = "README.md"
+version="0.1.0"
+requires-python = ">=3.8"
+dependencies = ["numpy","astropy","matplotlib","scipy", "corner"
+]
+description = "commonly used python tools"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+Homepage = "https://github.com/apace7/andrew_python_tools"
+Issues = "https://github.com/apace7/andrew_python_tools/issues"
+

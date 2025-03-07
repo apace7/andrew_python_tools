@@ -27,10 +27,14 @@ def vel_combine(bhb, print_option=True):
     0: weighted average
     1: varaince in error/weight
     2: weighted standard deviation
+    3: p-value (assuming no variability)
+    4: number of measurements
+    5: velocity of best measurement (lowest error)
+    6: velocity error of best measurement (lowest error)
+    printed extra 
     3: weighted variance in the mean, sampling error
     4: chi squared value
     5: p-value (assuming no variability)
-    6: number of measurements
     7: probability of coming from chi^2 distribution
 
     """
@@ -68,7 +72,10 @@ def vel_combine(bhb, print_option=True):
     #   print x, len(bhb.T)
         print (mean, var2, std_dev, new_err2, chi2_value, cdf_chi2, len(bhb.T), pdf_chi2, sf_chi2)
     # return mean, var2, std_dev, new_err2, sf_chi2, cdf_chi2, pdf_chi2, len(bhb.T)
-    return mean, var2, std_dev, sf_chi2, len(bhb.T)
+
+    best_value = bhb[0][np.argmin(bhb[1])], bhb[1][np.argmin(bhb[1])]
+
+    return mean, var2, std_dev, sf_chi2, len(bhb.T), best_value[0], best_value[1]
 
 def chi_sq_variable(v):
     """
